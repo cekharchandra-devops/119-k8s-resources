@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: environment
+  name: resources
   labels:
     project: expense
     environment: dev
     component: env
 spec:
   containers:
-    - name: environment
+    - name: resources
       image: nginx:latest
       env:
         - name: db_host
