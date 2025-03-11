@@ -16,9 +16,9 @@ spec:
         - name: config_url
           value: "configmgr.test.com"
       resources:
-      requests:
-        cpu: 100m
-        memory: 60Mi
-      limits:
-        cpu: 120m
-        memory: 120Mi
+        requests:
+          cpu: 100m
+          memory: 60Mi
+        limits:
+          cpu: 120m
+          memory: 120Mi
