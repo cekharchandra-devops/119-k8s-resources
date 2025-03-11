@@ -9,4 +9,4 @@ metadata:
 spec:
   containers:
   - name: labels
-    image: mainline-alpine3.20-slim
+    image: nginx:mainline-alpine3.20-slim
