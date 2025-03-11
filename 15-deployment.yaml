@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: nginx-deployment
-          image: nginx:latest
+          image: nginx:alpine-slim
           resources:
             requests:
               cpu: 100m
