@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeport
+  labels:
+    project: expense
+    environment: dev
+    component: nodeport
+spec:
+  containers:
+  - name: nodeport
+    image: nginx:latest
+    ports:
+    - containerPort: 80 #The port inside the container that the application listens on.
+      # hostPort: 80 #Maps container port to a host port
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-svc
+  labels:
+    project: expense
+    environment: dev
+    component: nodeport
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
+  selector:
+    project: expense
+    environment: dev
+    component: nodeport
