@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations
+  labels:
+    project: expense
+    environment: dev
+    component: annotations
+  annotations:
+    imageRegistry: "dockerhub.io"
+    buildURL: "jenkins.test.in/expense/annotations"
+spec:
+  containers:
+  - name: annotations
+    image: nginx:1.14.2
