@@ -19,17 +19,17 @@ spec:
         project: expense
         environment: dev
         component: deployment
-      spec:
-        containers:
-          - name: nginx-deployment
-            image: nginx:latest
-            resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 128m
-              memory: 256Mi				  
+    spec:
+      containers:
+        - name: nginx-deployment
+          image: nginx:latest
+          resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 128m
+            memory: 256Mi				  
 ---
 apiVersion: v1
 kind: Service
