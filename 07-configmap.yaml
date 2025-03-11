@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: configmap
+  name: nginx-cm
   labels:
     project: expense
     environment: dev
