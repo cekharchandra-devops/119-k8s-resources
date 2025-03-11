@@ -13,3 +13,5 @@ spec:
   - name: almalinux
     image: almalinux:9
     command: ["/bin/bash", "-c",  "sleep 100"]
+
+# containers inside same pod could communicate with each other using localhost and shared volumes and share same network namespace
