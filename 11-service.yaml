@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-cluserip
+  labels:
+    project: expense
+    environment: dev
+    component: service
+spec:
+  containers: 
+    - name: service
+      image: nginx:1.14.2
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-clusterip
+  labels:
+    project: expense
+    environment: dev
+    component: service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    project: expense
+    environment: dev
+    component: service
+
+#  cluster IP is assigned to the service and it is accessible only within the cluster
