@@ -50,3 +50,9 @@ spec:
     project: expense
     environment: dev
     component: frontend
+
+
+# replica set makes sure that a specified number of pod replicas are running at any given time. 
+# but it does not update the pods when the template is changed. the pods need to be deleted and recreated for the changes to take effect.
+# deployment is a higher-level concept that manages replica sets and provides declarative updates to pods along with a lot of other useful features.
+# deployment is recommended way to manage the creation and scaling of pods.

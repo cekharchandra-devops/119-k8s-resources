@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    project: expense
+    environment: dev
+    component: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: expense
+      environment: dev
+      component: deployment
+  template:
+    metadata:
+      labels:
+        project: expense
+        environment: dev
+        component: deployment
+      spec:
+        containers:
+          - name: nginx-deployment
+            image: nginx:latest
+            resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 128m
+              memory: 256Mi
+					  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    project: expense
+    environment: dev
+    component: deployment
+spec:
+  type: LoadBalancer
+  selector:
+    project: expense
+    environment: dev
+    component: deployment
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30889
