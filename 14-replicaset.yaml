@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-rs
+  labels:
+    project: expense
+    environment: dev
+    component: frontend
+  spec:
+    replicas: 3
+    selector:
+      matchingLabels:
+        project: expense
+        environment: dev
+        component: frontend
+    template:
+      labels:
+        project: expense
+        environment: dev
+        component: frontend
+      spec:
+        containers:
+          - name: nginx-rs
+            image: nginx:latest
+            resource:
+              requests:
+                cpu: 100m
+                memory: 64Mi
+              limits:
+                cpu: 128m
+                memory: 128Mi
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-svc
+  labels:
+    project: expense
+    environment: dev
+    component: frontend
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30007
+  selector:
+    project: expense
+    environment: dev
+    component: frontend
