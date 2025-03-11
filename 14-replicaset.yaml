@@ -14,10 +14,11 @@ metadata:
         environment: dev
         component: frontend
     template:
-      labels:
-        project: expense
-        environment: dev
-        component: frontend
+      metadata:
+        labels:
+          project: expense
+          environment: dev
+          component: frontend
       spec:
         containers:
           - name: nginx-rs
