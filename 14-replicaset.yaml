@@ -6,30 +6,30 @@ metadata:
     project: expense
     environment: dev
     component: frontend
-  spec:
-    replicas: 3
-    selector:
-      matchingLabels:
+spec:
+  replicas: 3
+  selector:
+    matchingLabels:
+      project: expense
+      environment: dev
+      component: frontend
+  template:
+    metadata:
+      labels:
         project: expense
         environment: dev
         component: frontend
-    template:
-      metadata:
-        labels:
-          project: expense
-          environment: dev
-          component: frontend
-      spec:
-        containers:
-          - name: nginx-rs
-            image: nginx:latest
-            resource:
-              requests:
-                cpu: 100m
-                memory: 64Mi
-              limits:
-                cpu: 128m
-                memory: 128Mi
+    spec:
+      containers:
+        - name: nginx-rs
+          image: nginx:latest
+          resource:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 128m
+              memory: 128Mi
 ---
 
 kind: Service
