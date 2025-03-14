@@ -43,3 +43,19 @@ spec:
     - name: efs-dynamic-volume
       persistentVolumeClaim:
         claimName: efs-dynamic-claim
+---
+apiVersion: v1  
+kind: Service
+metadata:
+  name: efs-dynamic-svc
+  labels:
+    app: efs-dynamic-pod
+    env: dev
+spec:
+  selector:
+    app: efs-dynamic-pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
