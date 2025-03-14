@@ -45,6 +45,8 @@ metadata:
     project: expense
     environment: dev
 spec:
+  nodeselector:
+    topology.kubernetes.io/zone: us-east-1d
   containers:
   - name: ebs-static-container
     image: nginx
