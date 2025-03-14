@@ -45,7 +45,7 @@ metadata:
     project: expense
     environment: dev
 spec:
-  nodeselector:
+  nodeSelector:
     topology.kubernetes.io/zone: us-east-1d
   containers:
   - name: ebs-static-container
