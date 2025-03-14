@@ -44,3 +44,19 @@ spec:
     - name: efs-volume
       persistentVolumeClaim:
         claimName: efs-claim
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: efs-svc
+  labels:
+    app: efs-pod
+    env: dev
+spec:
+  selector:
+    app: efs-pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
