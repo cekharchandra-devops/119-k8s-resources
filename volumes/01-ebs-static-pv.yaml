@@ -57,3 +57,19 @@ spec:
   - name: ebs-static-volume
     persistentVolumeClaim:
       claimName: ebs-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ebs-static-svc
+  labels:
+    app: ebs-static
+    env: dev
+spec:
+  selector:
+    purpose: ebs-static
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
